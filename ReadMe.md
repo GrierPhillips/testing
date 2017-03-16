@@ -13,7 +13,7 @@ When testing we would like to know not only that our code is operating as expect
 
 >Coverage measurement is typically used to gauge the effectiveness of tests. It can show which parts of your code are being exercised by tests, and which are not.
 
-Using [coverage](https://coverage.readthedocs.io/en/coverage-4.3.4/index.html) along with [pytest](http://doc.pytest.org/en/latest/) or [nose](http://nose.readthedocs.io/en/latest/index.html) we can quickly test all of our code and get automatically generated reports detailing how well we are actually testing. 
+Using [coverage](https://coverage.readthedocs.io/en/coverage-4.3.4/index.html) along with [pytest](http://doc.pytest.org/en/latest/) or [nose](http://nose.readthedocs.io/en/latest/index.html) we can quickly test all of our code and get automatically generated reports detailing how well we are actually testing.
 
 ## Simple Example
 
@@ -23,6 +23,27 @@ Once coverage and the testing suite of your choice is installed you can execute 
 
 > N.B. You can replace `nose` with the test suite of your choice.
 
-Subsequently running `coverage report` will display the details of your testing coverage on the command line. There is another option to create a html report which is really useful for visualizing where you tests are missing. This command will take existing coverage data to create the report.
+Subsequently running `coverage report -m` will display the details of your testing coverage on the command line. (The -m option displays the lines where your tests are missing coverage.) There is another option to create a html report which is really useful for visualizing where you tests are missing. This command will take existing coverage data to create the report.
 
 `coverage html`
+
+## Reports
+
+The basic command line report looks like this.
+```
+Name        Stmts   Miss  Cover   Missing
+
+-----------------------------------------
+sample.py      10      0   100%
+test.py        20      0   100%
+-----------------------------------------
+TOTAL          30      0   100%
+```
+
+I prefer the html version as you get an interactive table as well as a visual guide to your current code coverage.
+
+![Coverage Html Table](Coverage_table.png)
+Figure 1. Interactive Html table of coverage.
+
+![Sample.py Coverage](Sample_py_coverage.png)
+Figure 2. Coverage for testing only `MyClass.add` method.
